@@ -104,4 +104,6 @@ module "ecs_fargate" {
   enable_autoscaling = false
 
   lb_enable_cross_zone_load_balancing = true
+
+  default_certificate_arn = var.acm_arn
 }

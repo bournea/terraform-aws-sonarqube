@@ -88,3 +88,7 @@ variable "sonarqube_image" {
 variable "permissions_boundary" {
   type = string
 }
+
+variable "acm_arn" {
+  type = string
+}
