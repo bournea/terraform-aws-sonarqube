@@ -47,13 +47,13 @@ module "ecs_fargate" {
   container_cpu                = 4096
   container_memory             = 8192
   container_memory_reservation = 4096
-  lb_http_ports = {
+  lb_http_ports = {}
+  lb_https_ports = {
     default = {
-      listener_port     = 80
+      listener_port     = 443
       target_group_port = 9000
     }
   }
-  lb_https_ports = {}
   command = [
     "-Dsonar.search.javaAdditionalOpts=-Dnode.store.allow_mmap=false"
   ]
@@ -95,5 +95,13 @@ module "ecs_fargate" {
     secretOptions = null
   }
 
+  permissions_boundary= var.permissions_boundary
+
+  lb_https_ingress_cidr_blocks = ["212.59.69.80/32"]
+
   tags = var.tags
+
+  enable_autoscaling = false
+
+  lb_enable_cross_zone_load_balancing = true
 }
