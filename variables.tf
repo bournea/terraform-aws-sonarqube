@@ -84,3 +84,7 @@ variable "sonarqube_image" {
   type        = string
   default     = "sonarqube:lts"
 }
+
+variable "permissions_boundary" {
+  type = string
+}
