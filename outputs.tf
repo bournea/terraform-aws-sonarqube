@@ -26,3 +26,10 @@ output "sonar_lb_zone_id" {
   value       = module.ecs_fargate.aws_lb_lb_zone_id
 }
 
+output "ecs_tasks_sg_arn" {
+  value = module.ecs_fargate.ecs_tasks_sg_arn
+}
+
+output "ecs_tasks_sg_id" {
+  value = module.ecs_fargate.ecs_tasks_sg_id
+}
