@@ -60,7 +60,7 @@ resource "aws_rds_cluster" "aurora_db" {
 # AWS RDS Aurora Cluster Instances
 #------------------------------------------------------------------------------
 resource "aws_rds_cluster_instance" "aurora_db_cluster_instances" {
-  identifier           = "aurora-db-instance-${count.index}"
+  identifier           = "aurora-db-instance"
   cluster_identifier   = aws_rds_cluster.aurora_db.id
   db_subnet_group_name = aws_db_subnet_group.aurora_db_subnet_group.id
   engine               = "aurora-postgresql"
@@ -68,7 +68,7 @@ resource "aws_rds_cluster_instance" "aurora_db_cluster_instances" {
   instance_class       = local.sonar_db_instance_size
   publicly_accessible  = false
   tags = merge({
-    Name = "${var.name_prefix}-sonar-aurora-db-cluster-instances-${count.index}"
+    Name = "${var.name_prefix}-sonar-aurora-db-cluster-instance"
   }, var.tags)
 }
 
